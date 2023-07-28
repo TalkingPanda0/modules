@@ -6,14 +6,12 @@ function temptitle(ttitle)
 {
 	oldtitle = $.getStatus($.channelName);
 	$.updateStatus($.channelName, ttitle , "braincell",1);
-	$.say("Changed title to " + ttile + " for 15 minutes ");
-	setTimeout(continueExecution, 900000);
+	setTimeout(undotitle, 900000);
+	$.say("Changed title to \"" + ttile + "\" for 15 minutes ");
 }
 function undotitle(){
 	$.updateStatus($.channelName, oldtitle , "braincell",1);
-
-	$.say("Changed title back to " + oldtitle);
-	
+	$.say("Changed title back to \"" + oldtitle + "\"");
 	title = ""
 	oldtitle = ""
 
