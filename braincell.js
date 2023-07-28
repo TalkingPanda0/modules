@@ -41,28 +41,23 @@ function parsepoll(poll)
         var rewardTitle = event.getRewardTitle(),
             userInput = event.getUserInput(),
 	    userName = event.getUsername();
-	switch(rewardTitle)
-	{
-		case "Self Timeout":
-			$.say("0");
-			$.say("/timeout " + userName + " 300" + " Self Timeout");
-			break;
-		case "Timeout Somebody Else":
-			$.say("1");
-			$.say("/timeout " + userInput + " 300" + " Self Timeout");
-			break;
-		case "Poll":
-			$.say("2");
-			if(poll === "")
-				poll = userInput;
-			break;
-		case "CHANGE TITLE FOR 15m":
-			$.say("3");
-			if(title === "")
-				title = userInput;
-			break;
-		default:
-			return
+	if( reward.Title.equalsIgnoreCase("Self Timeout"){
+		$.say("0");
+		$.say("/timeout " + userName + " 300" + " Self Timeout");
+	}
+	else if( reward.Title.equalsIgnoreCase("Timeout Somebody Else"){
+		$.say("1");
+		$.say("/timeout " + userInput + " 300" + " Self Timeout");
+	}
+	else if( reward.Title.equalsIgnoreCase("Poll"){
+		$.say("2");
+		if(poll === "")
+			poll = userInput;
+	}
+	else if( reward.Title.equalsIgnoreCase("CHANGE TITLE FOR 15m"){
+		$.say("3");
+		if(title === "")
+			title = userInput;
 	}
        
 	});
