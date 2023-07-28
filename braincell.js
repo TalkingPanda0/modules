@@ -2,11 +2,11 @@ var oldtitle="";
 var title = "";
 var poll = "";
 
-function temptitle(ntitle)
+function temptitle(ttitle)
 {
 	oldtitle = $.getStatus($.channelName);
-	$.updateStatus($.channelName, ntitle , "braincell",1);
-	$.say("Changed title to " + ntile + " for 15 minutes ");
+	$.updateStatus($.channelName, ttitle , "braincell",1);
+	$.say("Changed title to " + ttile + " for 15 minutes ");
 	setTimeout(continueExecution, 900000);
 }
 function undotitle(){
@@ -43,20 +43,23 @@ function parsepoll(poll)
         var rewardTitle = event.getRewardTitle(),
             userInput = event.getUserInput(),
 	    userName = event.getUsername();
-	$.say(rewardTitle + userInput + userName);
 	switch(rewardTitle)
 	{
 		case "Self Timeout":
+			$.say("0");
 			$.say("/timeout " + userName + " 300" + " Self Timeout");
 			break;
 		case "Timeout Somebody Else":
+			$.say("1");
 			$.say("/timeout " + userInput + " 300" + " Self Timeout");
 			break;
 		case "Poll":
+			$.say("2");
 			if(poll === "")
 				poll = userInput;
 			break;
 		case "CHANGE TITLE FOR 15m":
+			$.say("3");
 			if(title === "")
 				title = userInput;
 			break;
