@@ -41,20 +41,20 @@ function parsepoll(poll)
         var rewardTitle = event.getRewardTitle(),
             userInput = event.getUserInput(),
 	    userName = event.getUsername();
-	if( reward.Title.equalsIgnoreCase("Self Timeout"){
+	if( rewardTitle.equalsIgnoreCase("Self Timeout"){
 		$.say("0");
 		$.say("/timeout " + userName + " 300" + " Self Timeout");
 	}
-	else if( reward.Title.equalsIgnoreCase("Timeout Somebody Else"){
+	else if( rewardTitle.equalsIgnoreCase("Timeout Somebody Else"){
 		$.say("1");
 		$.say("/timeout " + userInput + " 300" + " Self Timeout");
 	}
-	else if( reward.Title.equalsIgnoreCase("Poll"){
+	else if( rewardTitle.equalsIgnoreCase("Poll"){
 		$.say("2");
 		if(poll === "")
 			poll = userInput;
 	}
-	else if( reward.Title.equalsIgnoreCase("CHANGE TITLE FOR 15m"){
+	else if( rewardTitle.equalsIgnoreCase("CHANGE TITLE FOR 15m"){
 		$.say("3");
 		if(title === "")
 			title = userInput;
