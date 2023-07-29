@@ -1,5 +1,5 @@
 var oldtitle="";
-var title = "";
+var titlewanted = "";
 //var poll = "";
 
 function temptitle(ttitle)
@@ -13,7 +13,7 @@ function temptitle(ttitle)
 function undotitle(){
 	$.updateStatus($.channelName, oldtitle , "braincell",1);
 	$.say("Changed title back to \"" + oldtitle + "\"");
-	title = ""
+	titlewanted = ""
 	oldtitle = ""
 
 }
@@ -31,7 +31,7 @@ function undotitle(){
 			command = event.getCommand(),
 			args = event.getArgs();
 		if(command.equalsIgnoreCase("approvetitle"))
-			temptitle(title);
+			temptitle(titlewanted);
 		/*else if(command.equalsIgnoreCase("approvepoll"))
 			parsepoll(poll);
 		else if(command.equalsIgnoreCase("poll")
@@ -59,8 +59,7 @@ function undotitle(){
 			poll = userInput;
 	}*/
 	else if( rewardTitle.equalsIgnoreCase("CHANGE TITLE FOR 15m")){
-		if(title === "")
-			title = userInput;
+		titlewanted = userInput;
 	}
        
 	});
@@ -69,8 +68,8 @@ function undotitle(){
 	*/
 	$.bind('initReady', function () {
 		$.registerChatCommand('./custom/braincell.js', 'approvetitle', 2);
-		//$.registerChatCommand('./custom/braincell.js', 'approvepoll', 2);
 		$.registerChatCommand('./custom/braincell.js', 'temptitle', 2);
+		//$.registerChatCommand('./custom/braincell.js', 'approvepoll', 2);
 		//$.registerChatCommand('./custom/braincell.js', 'poll', 2);
 	});
 
