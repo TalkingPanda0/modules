@@ -52,7 +52,7 @@ function undotitle(){
 		$.say(".timeout " + userName + " 300" + " Self Timeout");
 	}
 	else if( rewardTitle.equalsIgnoreCase("Timeout Somebody Else")){
-		$.say(".timeout " + userInput + " 60" + " Timeout request by " + userName);
+		$.say(".timeout " + userInput.split(" ")[0] + " 60" + " Timeout request by " + userName);
 	}
 	/*else if( rewardTitle.equalsIgnoreCase("Poll")){
 		if(poll === "")
